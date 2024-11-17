@@ -1,0 +1,7 @@
+syntax = "proto3";
+option java_package = "cat.durban.sergio.flutter_meta_appads_sdk.proto";
+
+message FBLogEventMessageRequest {
+  string eventName = 1;
+  map<string, string> eventParameter = 2;
+}
