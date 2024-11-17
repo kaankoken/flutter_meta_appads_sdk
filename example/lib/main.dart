@@ -25,9 +25,9 @@ class _MyAppState extends State<MyApp> {
           appBar: AppBar(
             title: const Text('Plugin example app'),
           ),
-          body: Row(
+          body: Column(
             children: [
-              TextButton(
+              ElevatedButton(
                 onPressed: () =>
                     unawaited(_flutterMetaAppadsSdkPlugin.initSdk()),
                 child: const Text("Init SDK"),
@@ -35,17 +35,20 @@ class _MyAppState extends State<MyApp> {
               const SizedBox(
                 height: 8,
               ),
-              TextButton(
+              ElevatedButton(
                 child: const Text("Get FB AnonId"),
                 onPressed: () async {
-                  fbAnonId = await _flutterMetaAppadsSdkPlugin.getFbAnonId();
+                  var anonId = await _flutterMetaAppadsSdkPlugin.getFbAnonId();
+                  setState(() {
+                    fbAnonId = anonId;
+                  });
                 },
               ),
               Text("FB ANON ID: ${fbAnonId ?? "Not retrieved AnonId"}"),
               const SizedBox(
                 height: 8,
               ),
-              TextButton(
+              ElevatedButton(
                 onPressed: () => unawaited(
                   _flutterMetaAppadsSdkPlugin.logEvents(
                     FBLogEventCommand(
@@ -61,7 +64,7 @@ class _MyAppState extends State<MyApp> {
               const SizedBox(
                 height: 8,
               ),
-              TextButton(
+              ElevatedButton(
                 onPressed: () => unawaited(
                   _flutterMetaAppadsSdkPlugin.logStandardEvent(
                     FBLogStandardEventCommand(
@@ -77,7 +80,7 @@ class _MyAppState extends State<MyApp> {
               const SizedBox(
                 height: 8,
               ),
-              TextButton(
+              ElevatedButton(
                 onPressed: () => unawaited(
                   _flutterMetaAppadsSdkPlugin.logPurchase(
                     FBLogPurchaseCommand(
@@ -94,7 +97,7 @@ class _MyAppState extends State<MyApp> {
               const SizedBox(
                 height: 8,
               ),
-              TextButton(
+              ElevatedButton(
                 onPressed: () => unawaited(
                   _flutterMetaAppadsSdkPlugin.setUserData(
                     FBSetUserDataCommand(
