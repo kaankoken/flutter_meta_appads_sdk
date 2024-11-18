@@ -24,4 +24,3 @@ const FBAnonIdResponse$json = {
 /// Descriptor for `FBAnonIdResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List fBAnonIdResponseDescriptor = $convert.base64Decode(
     'ChBGQkFub25JZFJlc3BvbnNlEhoKCGZiQW5vbklkGAEgASgJUghmYkFub25JZA==');
-

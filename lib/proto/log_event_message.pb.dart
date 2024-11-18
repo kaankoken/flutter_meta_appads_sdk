@@ -28,40 +28,56 @@ class FBLogEventMessageRequest extends $pb.GeneratedMessage {
     return $result;
   }
   FBLogEventMessageRequest._() : super();
-  factory FBLogEventMessageRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory FBLogEventMessageRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory FBLogEventMessageRequest.fromBuffer($core.List<$core.int> i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(i, r);
+  factory FBLogEventMessageRequest.fromJson($core.String i,
+          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FBLogEventMessageRequest', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'FBLogEventMessageRequest',
+      createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'eventName', protoName: 'eventName')
-    ..m<$core.String, $core.String>(2, _omitFieldNames ? '' : 'eventParameter', protoName: 'eventParameter', entryClassName: 'FBLogEventMessageRequest.EventParameterEntry', keyFieldType: $pb.PbFieldType.OS, valueFieldType: $pb.PbFieldType.OS)
-    ..hasRequiredFields = false
-  ;
+    ..m<$core.String, $core.String>(2, _omitFieldNames ? '' : 'eventParameter',
+        protoName: 'eventParameter',
+        entryClassName: 'FBLogEventMessageRequest.EventParameterEntry',
+        keyFieldType: $pb.PbFieldType.OS,
+        valueFieldType: $pb.PbFieldType.OS)
+    ..hasRequiredFields = false;
 
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  FBLogEventMessageRequest clone() => FBLogEventMessageRequest()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  FBLogEventMessageRequest copyWith(void Function(FBLogEventMessageRequest) updates) => super.copyWith((message) => updates(message as FBLogEventMessageRequest)) as FBLogEventMessageRequest;
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+      'Will be removed in next major version')
+  FBLogEventMessageRequest clone() =>
+      FBLogEventMessageRequest()..mergeFromMessage(this);
+  @$core.Deprecated('Using this can add significant overhead to your binary. '
+      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+      'Will be removed in next major version')
+  FBLogEventMessageRequest copyWith(
+          void Function(FBLogEventMessageRequest) updates) =>
+      super.copyWith((message) => updates(message as FBLogEventMessageRequest))
+          as FBLogEventMessageRequest;
 
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
   static FBLogEventMessageRequest create() => FBLogEventMessageRequest._();
   FBLogEventMessageRequest createEmptyInstance() => create();
-  static $pb.PbList<FBLogEventMessageRequest> createRepeated() => $pb.PbList<FBLogEventMessageRequest>();
+  static $pb.PbList<FBLogEventMessageRequest> createRepeated() =>
+      $pb.PbList<FBLogEventMessageRequest>();
   @$core.pragma('dart2js:noInline')
-  static FBLogEventMessageRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FBLogEventMessageRequest>(create);
+  static FBLogEventMessageRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<FBLogEventMessageRequest>(create);
   static FBLogEventMessageRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get eventName => $_getSZ(0);
   @$pb.TagNumber(1)
-  set eventName($core.String v) { $_setString(0, v); }
+  set eventName($core.String v) {
+    $_setString(0, v);
+  }
+
   @$pb.TagNumber(1)
   $core.bool hasEventName() => $_has(0);
   @$pb.TagNumber(1)
@@ -71,6 +87,6 @@ class FBLogEventMessageRequest extends $pb.GeneratedMessage {
   $core.Map<$core.String, $core.String> get eventParameter => $_getMap(1);
 }
 
-
 const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
-const _omitMessageNames = $core.bool.fromEnvironment('protobuf.omit_message_names');
+const _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');
