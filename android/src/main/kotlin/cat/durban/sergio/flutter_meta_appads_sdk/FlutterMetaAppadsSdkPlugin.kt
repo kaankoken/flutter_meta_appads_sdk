@@ -2,6 +2,7 @@ package cat.durban.sergio.flutter_meta_appads_sdk
 
 import FBUserData
 import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import cat.durban.sergio.flutter_meta_appads_sdk.proto.FbAnonIdMessage
@@ -9,6 +10,7 @@ import cat.durban.sergio.flutter_meta_appads_sdk.proto.LogEventMessage.FBLogEven
 import cat.durban.sergio.flutter_meta_appads_sdk.proto.LogPurchaseMessage.FBLogPurchaseMessageRequest
 import cat.durban.sergio.flutter_meta_appads_sdk.proto.LogStandardEventMessage.FBLogStandardEventMessageRequest
 import cat.durban.sergio.flutter_meta_appads_sdk.proto.SetUserDataMessage
+import com.facebook.AccessToken
 import com.facebook.FacebookSdk
 import com.facebook.LoggingBehavior
 import com.facebook.Profile
@@ -27,34 +29,21 @@ import java.util.Optional
 import kotlin.jvm.optionals.getOrNull
 
 /** FlutterMetaAppadsSdkPlugin */
-class FlutterMetaAppadsSdkPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
+class FlutterMetaAppadsSdkPlugin: FlutterPlugin, MethodCallHandler {
   /// The MethodChannel that will the communication between Flutter and native Android
   ///
   /// This local reference serves to register the plugin with the Flutter Engine and unregister it
   /// when the Flutter Engine is detached from the Activity
   private lateinit var channel : MethodChannel
-  private var eventsLogger: AppEventsLogger? = null
+  private lateinit var eventsLogger: AppEventsLogger
   private var userData: FBUserData = FBUserData
+  private lateinit var context: Context
 
   override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
     channel = MethodChannel(flutterPluginBinding.binaryMessenger, "flutter_meta_appads_sdk")
     channel.setMethodCallHandler(this)
-  }
-
-  override fun onAttachedToActivity(binding: ActivityPluginBinding) {
-    eventsLogger = AppEventsLogger.newLogger(binding.activity)
-  }
-
-  override fun onDetachedFromActivityForConfigChanges() {
-    eventsLogger = null
-  }
-
-  override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
-    eventsLogger = AppEventsLogger.newLogger(binding.activity)
-  }
-
-  override fun onDetachedFromActivity() {
-    eventsLogger = null
+    eventsLogger = AppEventsLogger.newLogger(flutterPluginBinding.applicationContext)
+    context = flutterPluginBinding.applicationContext
   }
 
   override fun onMethodCall(call: MethodCall, result: Result) {
@@ -66,8 +55,9 @@ class FlutterMetaAppadsSdkPlugin: FlutterPlugin, MethodCallHandler, ActivityAwar
         FacebookSdk.setAutoInitEnabled(true)
         FacebookSdk.fullyInitialize()
 
+        Log.d("FBSDKLog", "Init SDK: ${FacebookSdk.isInitialized()}")
         Log.d("FBSDKLog", "SDK Version: ${FacebookSdk.getSdkVersion()}")
-        Log.d("FBSDKLog", "AnonymousID: ${Profile.getCurrentProfile()?.id}")
+        Log.d("FBSDKLog", "AnonymousID: ${AppEventsLogger.getAnonymousAppDeviceGUID(context)}")
         result.success(null)
       }
       "logEvents" -> {
@@ -111,14 +101,14 @@ class FlutterMetaAppadsSdkPlugin: FlutterPlugin, MethodCallHandler, ActivityAwar
         result.success(null)
       }
       "getFbAnonId" -> {
-        val anonId = Profile.getCurrentProfile()?.id
+        val anonId = AppEventsLogger.getAnonymousAppDeviceGUID(context).toString()
 
         val data = FbAnonIdMessage.FBAnonIdResponse
           .newBuilder()
           .setFbAnonId(anonId)
           .build()
 
-        result.success(data)
+        result.success(data.toByteArray())
       }
       else -> {
         result.notImplemented()
@@ -139,13 +129,13 @@ class FlutterMetaAppadsSdkPlugin: FlutterPlugin, MethodCallHandler, ActivityAwar
       params.putString(key, value)
     }
 
-    eventsLogger?.logEvent(request.eventName, params)
+    eventsLogger.logEvent(request.eventName, params)
   }
 
   private fun logPurchase(request: FBLogPurchaseMessageRequest) {
     val currency = CurrencyFinder.find(request.currency)
 
-    eventsLogger?.logPurchase(request.amount.toBigDecimal(), currency.getOrNull())
+    eventsLogger.logPurchase(request.amount.toBigDecimal(), currency.getOrNull())
   }
 
   private fun logStandardEvent(request: FBLogStandardEventMessageRequest) {
@@ -161,7 +151,7 @@ class FlutterMetaAppadsSdkPlugin: FlutterPlugin, MethodCallHandler, ActivityAwar
         }
       }
 
-      eventsLogger?.logEvent(eventName, params)
+      eventsLogger.logEvent(eventName, params)
     }
   }
 
