@@ -2,7 +2,9 @@
 
 This Flutter plugin provides a simple interface to interact with the Meta SDK. It allows you to initialize the SDK, set user data, log standard events, log purchases, and log custom events.
 
-It currently only works on iOS, but I'm working on completing the integration with Android.
+### Disclaimer
+
+I'm not sure setUserData is working properly in android since i'm not using it in Android Apps, it works different from iOS apps, so be sure to pass all the data everytime the apps starts.
 
 ### Installation
 You must first create an app at Facebook developers: https://developers.facebook.com/
