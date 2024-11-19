@@ -10,8 +10,9 @@ export 'objects/fb_log_standard_event_command.dart';
 export "objects/fb_set_user_data_command.dart";
 
 class FlutterMetaAppAdsSdk {
-  Future<void> initSdk() {
-    return FlutterMetaAppadsSdkPlatform.instance.initSdk();
+  Future<void> initSdk({bool enableLogging = false}) {
+    return FlutterMetaAppadsSdkPlatform.instance
+        .initSdk(enableLogging: enableLogging);
   }
 
   Future<void> setUserData(FBSetUserDataCommand command) {
@@ -41,5 +42,16 @@ class FlutterMetaAppAdsSdk {
   Future<String?> getFbAnonId() async {
     return (await FlutterMetaAppadsSdkPlatform.instance.getFbAnonId())
         ?.fbAnonId;
+  }
+
+  Future<void> setAdvertiserTrackingEnabled({required bool isEnabled}) async {
+    return FlutterMetaAppadsSdkPlatform.instance
+        .setAdvertiserTrackingEnabled(isEnabled: isEnabled);
+  }
+
+  Future<void> setAdvertiserIDCollectionEnabled(
+      {required bool isEnabled}) async {
+    return FlutterMetaAppadsSdkPlatform.instance
+        .setAdvertiserIDCollectionEnabled(isEnabled: isEnabled);
   }
 }

@@ -14,6 +14,7 @@ public class FlutterMetaAppadsSdkPlugin: NSObject, FlutterPlugin {
     private var startUpApplication: UIApplication?
     private var startUpURL: URL?
     private var startUpOptions: [UIApplication.OpenURLOptionsKey: Any]?
+    private var loggingEnabled: Bool = false
 
     public func application(
         _ application: UIApplication,
@@ -30,6 +31,11 @@ public class FlutterMetaAppadsSdkPlugin: NSObject, FlutterPlugin {
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         switch call.method {
         case "initSdk":
+            if let args = call.arguments as? [String: Any],
+               let enableLogging = args["enableLogging"] as? Bool {
+                loggingEnabled = enableLogging
+            }
+
             initSdk()
             result(nil)
         case "logEvents":
@@ -63,14 +69,38 @@ public class FlutterMetaAppadsSdkPlugin: NSObject, FlutterPlugin {
             let data = try? response.serializedData()
 
             result(data)
+        case "setAdvertiserTrackingEnabled":
+            if let args = call.arguments as? [String: Any],
+               let isEnabled = args["isEnabled"] as? Bool {
+                Settings.shared.isAdvertiserTrackingEnabled = isEnabled
+
+                if loggingEnabled {
+                    print("FBSDKLog: TRACKING ENABLED \(Settings.shared.isAdvertiserTrackingEnabled)")
+                }
+            }
+
+            result(nil)
+        case "setAdvertiserIDCollectionEnabled":
+            if let args = call.arguments as? [String: Any],
+               let isEnabled = args["isEnabled"] as? Bool {
+                Settings.shared.isAdvertiserIDCollectionEnabled = isEnabled
+
+                if loggingEnabled {
+                    print("FBSDKLog: IDFA COLLECTION \(Settings.shared.isAdvertiserTrackingEnabled)")
+                }
+            }
+
+            result(nil)
         default:
             result(FlutterMethodNotImplemented)
         }
     }
 
     private func initSdk() {
-        Settings.shared.enableLoggingBehavior(.appEvents)
-        Settings.shared.enableLoggingBehavior(.informational)
+        if loggingEnabled {
+            Settings.shared.enableLoggingBehavior(.appEvents)
+            Settings.shared.enableLoggingBehavior(.informational)
+        }
 
         if let application = startUpApplication,
            let url = startUpURL,
@@ -85,10 +115,12 @@ public class FlutterMetaAppadsSdkPlugin: NSObject, FlutterPlugin {
             ApplicationDelegate.shared.initializeSDK()
         }
 
-        print("FBSDKLog: SDK Version: \(Settings.shared.sdkVersion)")
-        print("FBSDKLog: AnonymousID: \(AppEvents.shared.anonymousID)")
-        print("FBSDKLog: IDFA COLLECTION \(Settings.shared.isAdvertiserIDCollectionEnabled)")
-        print("FBSDKLog: TRACKING ENABLED \(Settings.shared.isAdvertiserTrackingEnabled)")
+        if loggingEnabled {
+            print("FBSDKLog: SDK Version: \(Settings.shared.sdkVersion)")
+            print("FBSDKLog: AnonymousID: \(AppEvents.shared.anonymousID)")
+            print("FBSDKLog: IDFA COLLECTION \(Settings.shared.isAdvertiserIDCollectionEnabled)")
+            print("FBSDKLog: TRACKING ENABLED \(Settings.shared.isAdvertiserTrackingEnabled)")
+        }
     }
 
     private func logEvent(_ eventName: String, parameters: [String: String]) {
@@ -118,6 +150,8 @@ public class FlutterMetaAppadsSdkPlugin: NSObject, FlutterPlugin {
     private func setUserData(_ data: String?, forType: FBUserDataType) {
         if let forType = protoEnumToFBSDKAppEventUserDataType(forType) {
             AppEvents.shared.setUserData(data, forType: forType)
+
+            print("FBSDKLog: TRACKING ENABLED \(Settings.shared.isAdvertiserTrackingEnabled)")
         }
     }
 }

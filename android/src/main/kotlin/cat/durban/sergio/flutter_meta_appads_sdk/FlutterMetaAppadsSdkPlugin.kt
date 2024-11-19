@@ -38,6 +38,7 @@ class FlutterMetaAppadsSdkPlugin: FlutterPlugin, MethodCallHandler {
   private lateinit var eventsLogger: AppEventsLogger
   private var userData: FBUserData = FBUserData
   private lateinit var context: Context
+  private var loggingEnabled: Boolean = false
 
   override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
     channel = MethodChannel(flutterPluginBinding.binaryMessenger, "flutter_meta_appads_sdk")
@@ -49,15 +50,24 @@ class FlutterMetaAppadsSdkPlugin: FlutterPlugin, MethodCallHandler {
   override fun onMethodCall(call: MethodCall, result: Result) {
     when (call.method) {
       "initSdk" -> {
-        FacebookSdk.addLoggingBehavior(LoggingBehavior.APP_EVENTS)
-        FacebookSdk.addLoggingBehavior(LoggingBehavior.DEVELOPER_ERRORS)
+        call.argument<Boolean>("enableLogging")?.let {
+          loggingEnabled = it
+        }
+        if (loggingEnabled) {
+          FacebookSdk.addLoggingBehavior(LoggingBehavior.APP_EVENTS)
+          FacebookSdk.addLoggingBehavior(LoggingBehavior.DEVELOPER_ERRORS)
+        }
 
         FacebookSdk.setAutoInitEnabled(true)
         FacebookSdk.fullyInitialize()
 
-        Log.d("FBSDKLog", "Init SDK: ${FacebookSdk.isInitialized()}")
-        Log.d("FBSDKLog", "SDK Version: ${FacebookSdk.getSdkVersion()}")
-        Log.d("FBSDKLog", "AnonymousID: ${AppEventsLogger.getAnonymousAppDeviceGUID(context)}")
+        if (loggingEnabled) {
+          Log.d("FBSDKLog", "Init SDK: ${FacebookSdk.isInitialized()}")
+          Log.d("FBSDKLog", "SDK Version: ${FacebookSdk.getSdkVersion()}")
+          Log.d("FBSDKLog", "AnonymousID: ${AppEventsLogger.getAnonymousAppDeviceGUID(context)}")
+          Log.d("FBSDKLog", "TRACKING ENABLED: ${FacebookSdk.getAdvertiserIDCollectionEnabled()}")
+        }
+
         result.success(null)
       }
       "logEvents" -> {
@@ -109,6 +119,16 @@ class FlutterMetaAppadsSdkPlugin: FlutterPlugin, MethodCallHandler {
           .build()
 
         result.success(data.toByteArray())
+      }
+      "setAdvertiserTrackingEnabled" -> { /* NOTHING TO DO EXCLUSIVE IOS FUNCTIONALITY */  }
+      "setAdvertiserIDCollectionEnabled" -> {
+        call.argument<Boolean>("isEnabled")?.let {
+          FacebookSdk.setAdvertiserIDCollectionEnabled(it)
+
+          if (loggingEnabled) {
+            Log.d("FBSDKLog", "TRACKING ENABLED: ${FacebookSdk.getAdvertiserIDCollectionEnabled()}")
+          }
+        }
       }
       else -> {
         result.notImplemented()

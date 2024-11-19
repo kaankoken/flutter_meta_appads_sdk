@@ -28,8 +28,9 @@ class _MyAppState extends State<MyApp> {
           body: Column(
             children: [
               ElevatedButton(
-                onPressed: () =>
-                    unawaited(_flutterMetaAppadsSdkPlugin.initSdk()),
+                onPressed: () => unawaited(
+                  _flutterMetaAppadsSdkPlugin.initSdk(enableLogging: true),
+                ),
                 child: const Text("Init SDK"),
               ),
               const SizedBox(
@@ -108,6 +109,52 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ),
                 child: const Text("Set UserData"),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              ElevatedButton(
+                onPressed: () => unawaited(
+                  _flutterMetaAppadsSdkPlugin.setAdvertiserTrackingEnabled(
+                    isEnabled: true,
+                  ),
+                ),
+                child: const Text("Set Advertiser Tracking Enabled - True"),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              ElevatedButton(
+                onPressed: () => unawaited(
+                  _flutterMetaAppadsSdkPlugin.setAdvertiserTrackingEnabled(
+                    isEnabled: false,
+                  ),
+                ),
+                child: const Text("Set Advertiser Tracking Enabled - False"),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              ElevatedButton(
+                onPressed: () => unawaited(
+                  _flutterMetaAppadsSdkPlugin.setAdvertiserIDCollectionEnabled(
+                    isEnabled: true,
+                  ),
+                ),
+                child:
+                    const Text("Set Advertiser ID Collection Enabled - True"),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              ElevatedButton(
+                onPressed: () => unawaited(
+                  _flutterMetaAppadsSdkPlugin.setAdvertiserIDCollectionEnabled(
+                    isEnabled: false,
+                  ),
+                ),
+                child:
+                    const Text("Set Advertiser ID Collection Enabled - False"),
               ),
             ],
           )),

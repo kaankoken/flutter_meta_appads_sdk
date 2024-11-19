@@ -15,8 +15,13 @@ class MethodChannelFlutterMetaAppadsSdk extends FlutterMetaAppadsSdkPlatform {
   final methodChannel = const MethodChannel('flutter_meta_appads_sdk');
 
   @override
-  Future<void> initSdk() async {
-    await methodChannel.invokeMethod('initSdk');
+  Future<void> initSdk({bool enableLogging = false}) async {
+    await methodChannel.invokeMethod(
+      'initSdk',
+      {
+        "enableLogging": enableLogging,
+      },
+    );
   }
 
   @override
@@ -51,5 +56,24 @@ class MethodChannelFlutterMetaAppadsSdk extends FlutterMetaAppadsSdkPlatform {
     }
 
     return null;
+  }
+
+  Future<void> setAdvertiserTrackingEnabled({required bool isEnabled}) async {
+    await methodChannel.invokeMethod(
+      "setAdvertiserTrackingEnabled",
+      {
+        "isEnabled": isEnabled,
+      },
+    );
+  }
+
+  Future<void> setAdvertiserIDCollectionEnabled(
+      {required bool isEnabled}) async {
+    await methodChannel.invokeMethod(
+      "setAdvertiserIDCollectionEnabled",
+      {
+        "isEnabled": isEnabled,
+      },
+    );
   }
 }

@@ -29,7 +29,7 @@ abstract class FlutterMetaAppadsSdkPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<void> initSdk() {
+  Future<void> initSdk({bool enableLogging = false}) {
     throw UnimplementedError('initSdk() has not been implemented.');
   }
 
@@ -51,5 +51,15 @@ abstract class FlutterMetaAppadsSdkPlatform extends PlatformInterface {
 
   Future<FBAnonIdResponse?> getFbAnonId() {
     throw UnimplementedError('setUserData() has not been implemented.');
+  }
+
+  Future<void> setAdvertiserTrackingEnabled({required bool isEnabled}) {
+    throw UnimplementedError(
+        'setAdvertiserTrackingEnabled() has not been implemented.');
+  }
+
+  Future<void> setAdvertiserIDCollectionEnabled({required bool isEnabled}) {
+    throw UnimplementedError(
+        'setAdvertiserIDCollectionEnabled() has not been implemented.');
   }
 }
