@@ -2,11 +2,13 @@ import 'flutter_meta_appads_sdk_platform_interface.dart';
 import 'objects/fb_log_event_command.dart';
 import 'objects/fb_log_purchase_command.dart';
 import 'objects/fb_log_standard_event_command.dart';
+import 'objects/fb_set_data_processing_options_command.dart';
 import 'objects/fb_set_user_data_command.dart';
 
 export 'objects/fb_log_event_command.dart';
 export 'objects/fb_log_purchase_command.dart';
 export 'objects/fb_log_standard_event_command.dart';
+export 'objects/fb_set_data_processing_options_command.dart';
 export "objects/fb_set_user_data_command.dart";
 
 class FlutterMetaAppAdsSdk {
@@ -53,5 +55,12 @@ class FlutterMetaAppAdsSdk {
       {required bool isEnabled}) async {
     return FlutterMetaAppadsSdkPlatform.instance
         .setAdvertiserIDCollectionEnabled(isEnabled: isEnabled);
+  }
+
+  Future<void> setDataProcessingOptions(
+      FBSetDataProcessingOptionsCommand command) {
+    return FlutterMetaAppadsSdkPlatform.instance.setDataProcessingOptions(
+      command.toProtoRequest(),
+    );
   }
 }

@@ -1,3 +1,7 @@
+## 1.0.4
+
+* Added `setDataProcessingOptions`  please refer to [Meta documentation](https://developers.facebook.com/docs/app-events/guides/data-processing-options/) on this function.
+
 ## 1.0.3
 
 * Added `setAdvertiserIDCollectionEnabled` please refer to Meta documentation on this function.

@@ -6,6 +6,7 @@ import 'flutter_meta_appads_sdk_platform_interface.dart';
 import 'proto/log_event_message.pb.dart';
 import 'proto/log_purchase_message.pb.dart';
 import 'proto/log_standard_event_message.pb.dart';
+import 'proto/set_data_processing_options.pb.dart';
 import 'proto/set_user_data_message.pb.dart';
 
 /// An implementation of [FlutterMetaAppadsSdkPlatform] that uses method channels.
@@ -75,5 +76,11 @@ class MethodChannelFlutterMetaAppadsSdk extends FlutterMetaAppadsSdkPlatform {
         "isEnabled": isEnabled,
       },
     );
+  }
+
+  Future<void> setDataProcessingOptions(
+      FBSetDataProcessingOptionsRequest request) async {
+    await methodChannel.invokeMethod(
+        "setDataProcessingOptions", request.writeToBuffer());
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter_meta_appads_sdk/proto/fb_anon_id_message.pb.dart';
 import 'package:flutter_meta_appads_sdk/proto/log_event_message.pb.dart';
 import 'package:flutter_meta_appads_sdk/proto/log_purchase_message.pb.dart';
 import 'package:flutter_meta_appads_sdk/proto/log_standard_event_message.pb.dart';
+import 'package:flutter_meta_appads_sdk/proto/set_data_processing_options.pb.dart';
 import 'package:flutter_meta_appads_sdk/proto/set_user_data_message.pb.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
@@ -61,5 +62,11 @@ abstract class FlutterMetaAppadsSdkPlatform extends PlatformInterface {
   Future<void> setAdvertiserIDCollectionEnabled({required bool isEnabled}) {
     throw UnimplementedError(
         'setAdvertiserIDCollectionEnabled() has not been implemented.');
+  }
+
+  Future<void> setDataProcessingOptions(
+      FBSetDataProcessingOptionsRequest request) {
+    throw UnimplementedError(
+        'setDataProcessingOptions() has not been implemented.');
   }
 }

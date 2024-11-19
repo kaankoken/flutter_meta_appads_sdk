@@ -91,6 +91,16 @@ public class FlutterMetaAppadsSdkPlugin: NSObject, FlutterPlugin {
             }
 
             result(nil)
+        case "setDataProcessingOptions":
+            if let data = call.arguments as? FlutterStandardTypedData,
+               let request = try? FBSetDataProcessingOptionsRequest(serializedBytes: data.data) {
+                if request.optionalState != nil && request.optionalCountry != nil {
+                    Settings.shared.setDataProcessingOptions(request.modes, country: request.country, state: request.state)
+                } else {
+                    Settings.shared.setDataProcessingOptions(request.modes)
+                }
+            }
+            result(nil)
         default:
             result(FlutterMethodNotImplemented)
         }

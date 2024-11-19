@@ -156,6 +156,32 @@ class _MyAppState extends State<MyApp> {
                 child:
                     const Text("Set Advertiser ID Collection Enabled - False"),
               ),
+              const SizedBox(
+                height: 8,
+              ),
+              ElevatedButton(
+                onPressed: () => unawaited(
+                  _flutterMetaAppadsSdkPlugin.setDataProcessingOptions(
+                      FBSetDataProcessingOptionsCommand(modes: [])),
+                ),
+                child: const Text("setDataProcessingOptions - empty modes"),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              ElevatedButton(
+                onPressed: () => unawaited(
+                  _flutterMetaAppadsSdkPlugin.setDataProcessingOptions(
+                    FBSetDataProcessingOptionsCommand(
+                      modes: ["LDU"],
+                      country: 0,
+                      state: 0,
+                    ),
+                  ),
+                ),
+                child: const Text(
+                    "setDataProcessingOptions - LDU automatic geolocation"),
+              ),
             ],
           )),
     );

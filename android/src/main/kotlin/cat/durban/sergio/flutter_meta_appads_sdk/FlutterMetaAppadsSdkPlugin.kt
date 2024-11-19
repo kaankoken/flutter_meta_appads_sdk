@@ -10,6 +10,8 @@ import cat.durban.sergio.flutter_meta_appads_sdk.proto.LogEventMessage.FBLogEven
 import cat.durban.sergio.flutter_meta_appads_sdk.proto.LogPurchaseMessage.FBLogPurchaseMessageRequest
 import cat.durban.sergio.flutter_meta_appads_sdk.proto.LogStandardEventMessage.FBLogStandardEventMessageRequest
 import cat.durban.sergio.flutter_meta_appads_sdk.proto.SetUserDataMessage
+import cat.durban.sergio.flutter_meta_appads_sdk.proto.SetDataProcessingOptions
+
 import com.facebook.AccessToken
 import com.facebook.FacebookSdk
 import com.facebook.LoggingBehavior
@@ -128,6 +130,24 @@ class FlutterMetaAppadsSdkPlugin: FlutterPlugin, MethodCallHandler {
           if (loggingEnabled) {
             Log.d("FBSDKLog", "TRACKING ENABLED: ${FacebookSdk.getAdvertiserIDCollectionEnabled()}")
           }
+        }
+      }
+      "setDataProcessingOptions" -> {
+        val request = SetDataProcessingOptions.FBSetDataProcessingOptionsRequest
+          .newBuilder()
+          .mergeFrom(call.arguments as ByteArray)
+          .build()
+
+        if (request.hasState() && request.hasCountry()) {
+          FacebookSdk.setDataProcessingOptions(
+            request.modesList.toTypedArray(),
+            request.country,
+            request.state,
+          )
+        } else {
+          FacebookSdk.setDataProcessingOptions(
+            request.modesList.toTypedArray(),
+          )
         }
       }
       else -> {
