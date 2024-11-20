@@ -148,10 +148,10 @@ class ObjectsToProtoCommunications {
   static List<FBDefaultParameter> _eventParametersToProtoEnum(
     Map<FBStandardParameter, String> parameters,
   ) {
-    List<FBDefaultParameter> ProtoSMParameters = [];
+    List<FBDefaultParameter> protoSMParameters = [];
 
     parameters.forEach(
-      (key, value) => ProtoSMParameters.add(
+      (key, value) => protoSMParameters.add(
         FBDefaultParameter(
           parameterName: _standardParametersToProto(parameter: key),
           value: value,
@@ -159,7 +159,7 @@ class ObjectsToProtoCommunications {
       ),
     );
 
-    return ProtoSMParameters;
+    return protoSMParameters;
   }
 
   static ProtoSUD.FBUserDataType _userTypeToProto(FBUserDataType type) {

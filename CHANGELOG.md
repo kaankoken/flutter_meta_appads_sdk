@@ -1,3 +1,7 @@
+## 1.1.1
+
+* Changes for pub.dev pub points score
+
 ## 1.1.0
 
 * Refactor: Reduce external visibility of exposed Protobuf objects.
