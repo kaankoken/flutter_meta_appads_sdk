@@ -1,3 +1,9 @@
+## 1.1.0
+
+* Refactor: Reduce external visibility of exposed Protobuf objects.
+* Added documentation to exposed methods and objects
+* Fix logging issue (not showing logs via logcat) in android integration.
+
 ## 1.0.4
 
 * Added `setDataProcessingOptions`  please refer to [Meta documentation](https://developers.facebook.com/docs/app-events/guides/data-processing-options/) on this function.

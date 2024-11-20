@@ -56,6 +56,7 @@ class FlutterMetaAppadsSdkPlugin: FlutterPlugin, MethodCallHandler {
           loggingEnabled = it
         }
         if (loggingEnabled) {
+          FacebookSdk.setIsDebugEnabled(true)
           FacebookSdk.addLoggingBehavior(LoggingBehavior.APP_EVENTS)
           FacebookSdk.addLoggingBehavior(LoggingBehavior.DEVELOPER_ERRORS)
         }
