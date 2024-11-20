@@ -1,5 +1,4 @@
 /// A class representing a purchase event to be logged to the Meta App Ads SDK.
-
 /// **Properties:**
 ///
 /// * `amount`: A double representing the purchase amount.

@@ -1,3 +1,7 @@
+### 1.1.2
+
+* Fix dangling doc
+
 ## 1.1.1
 
 * Changes for pub.dev pub points score
