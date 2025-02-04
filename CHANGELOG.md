@@ -1,3 +1,7 @@
+### 1.1.3
+
+* Fix dangling methodchannel method on Android (thanks to @davidnunes19)
+
 ### 1.1.2
 
 * Fix dangling doc
