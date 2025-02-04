@@ -132,6 +132,8 @@ class FlutterMetaAppadsSdkPlugin: FlutterPlugin, MethodCallHandler {
             Log.d("FBSDKLog", "TRACKING ENABLED: ${FacebookSdk.getAdvertiserIDCollectionEnabled()}")
           }
         }
+
+        result.success(null)
       }
       "setDataProcessingOptions" -> {
         val request = SetDataProcessingOptions.FBSetDataProcessingOptionsRequest
@@ -150,6 +152,8 @@ class FlutterMetaAppadsSdkPlugin: FlutterPlugin, MethodCallHandler {
             request.modesList.toTypedArray(),
           )
         }
+
+        result.success(null)
       }
       else -> {
         result.notImplemented()
