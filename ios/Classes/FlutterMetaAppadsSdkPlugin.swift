@@ -86,7 +86,7 @@ public class FlutterMetaAppadsSdkPlugin: NSObject, FlutterPlugin {
                 Settings.shared.isAdvertiserIDCollectionEnabled = isEnabled
 
                 if loggingEnabled {
-                    print("FBSDKLog: IDFA COLLECTION \(Settings.shared.isAdvertiserTrackingEnabled)")
+                    print("FBSDKLog: IDFA COLLECTION \(Settings.shared.isAdvertiserIDCollectionEnabled)")
                 }
             }
 
@@ -141,6 +141,7 @@ public class FlutterMetaAppadsSdkPlugin: NSObject, FlutterPlugin {
             print("FBSDKLog: AnonymousID: \(AppEvents.shared.anonymousID)")
             print("FBSDKLog: IDFA COLLECTION \(Settings.shared.isAdvertiserIDCollectionEnabled)")
             print("FBSDKLog: TRACKING ENABLED \(Settings.shared.isAdvertiserTrackingEnabled)")
+            print("FBSDKLog: AUTOMATIC EVENT COLLECTION \(Settings.shared.isAutoLogAppEventsEnabled)")
         }
     }
 
