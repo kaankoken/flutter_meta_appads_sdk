@@ -91,6 +91,17 @@ public class FlutterMetaAppadsSdkPlugin: NSObject, FlutterPlugin {
             }
 
             result(nil)
+        case "setAutoLogAppEventsEnabled":
+            if let args = call.arguments as? [String: Any],
+               let isEnabled = args["isEnabled"] as? Bool {
+                Settings.shared.isAutoLogAppEventsEnabled = isEnabled
+
+                if loggingEnabled {
+                    print("FBSDKLog: AUTOMATIC EVENT COLLECTION \(Settings.shared.isAutoLogAppEventsEnabled)")
+                }
+            }
+
+            result(nil)
         case "setDataProcessingOptions":
             if let data = call.arguments as? FlutterStandardTypedData,
                let request = try? FBSetDataProcessingOptionsRequest(serializedBytes: data.data) {

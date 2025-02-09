@@ -135,6 +135,17 @@ class FlutterMetaAppadsSdkPlugin: FlutterPlugin, MethodCallHandler {
 
         result.success(null)
       }
+      "setAutoLogAppEventsEnabled" -> {
+        call.argument<Boolean>("isEnabled")?.let {
+          FacebookSdk.setAutoLogAppEventsEnabled(it)
+
+          if (loggingEnabled) {
+            Log.d("FBSDKLog", "AUTOMATIC EVENT COLLECTION ENABLED: ${FacebookSdk.getAutoLogAppEventsEnabled()}")
+          }
+        }
+
+        result.success(null)
+      }
       "setDataProcessingOptions" -> {
         val request = SetDataProcessingOptions.FBSetDataProcessingOptionsRequest
           .newBuilder()

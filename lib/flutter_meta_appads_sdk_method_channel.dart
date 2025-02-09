@@ -78,6 +78,15 @@ class MethodChannelFlutterMetaAppadsSdk extends FlutterMetaAppadsSdkPlatform {
     );
   }
 
+  Future<void> setAutoLogAppEventsEnabled({required bool isEnabled}) async {
+    await methodChannel.invokeMethod(
+      "setAutoLogAppEventsEnabled",
+      {
+        "isEnabled": isEnabled,
+      },
+    );
+  }
+
   Future<void> setDataProcessingOptions(
       FBSetDataProcessingOptionsRequest request) async {
     await methodChannel.invokeMethod(
