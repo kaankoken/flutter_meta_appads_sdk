@@ -1,3 +1,9 @@
+### 1.2.0
+
+* Added `setAutoLogAppEventsEnabled` please refer to [Meta Guidelines](https://developers.facebook.com/docs/app-events/automatic-event-collection-detail/) on this function. (Thanks to @Gramatton)
+* Upgrade Facebook SDK to 18.0.1 (Android) and 18.0.0 (iOS). (Thanks to @Gramatton)
+* Changed protobuf-java to protobuf-javalite for increased performance. (Thanks to @Gramatton)
+
 ### 1.1.3
 
 * Fix dangling methodchannel method on Android (thanks to @davidnunes19)
