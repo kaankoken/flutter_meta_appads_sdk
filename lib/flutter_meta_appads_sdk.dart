@@ -153,6 +153,27 @@ class FlutterMetaAppAdsSdk {
         .setAdvertiserIDCollectionEnabled(isEnabled: isEnabled);
   }
 
+  /// **Sets the automatic event collection enabled state.**
+  ///
+  /// This function enables or disables the automatic event collection.
+  /// The SDK by default automatically logs common mobile events from your app like
+  /// app installs and app launches. These events are transmitted to Facebook
+  /// when an app is opened to provide you insights into your app's User behavior
+  /// and ad campaign performance.
+  ///
+  /// **Parameters:**
+  ///   * `isEnabled`: A boolean flag indicating whether automatic event collection should be enabled.
+  ///
+  /// **Important Notes:**
+  ///   * **Privacy Considerations:** Under GDPR and other EU data protection regulations, you are required to obtain end User consent before sending data via Meta SDK.
+  ///   * **Meta Documentation:** Refer to Meta documentation for using this functionality here: https://developers.facebook.com/docs/app-events/gdpr-compliance.
+  Future<void> setAutoLogAppEventsEnabled({
+    required bool isEnabled,
+  }) async {
+    return FlutterMetaAppadsSdkPlatform.instance
+        .setAutoLogAppEventsEnabled(isEnabled: isEnabled);
+  }
+
   /// **Sets data processing options for the Meta App Ads SDK.**
   ///
   /// This function allows you to configure various data processing options, including

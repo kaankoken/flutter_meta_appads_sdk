@@ -64,6 +64,11 @@ abstract class FlutterMetaAppadsSdkPlatform extends PlatformInterface {
         'setAdvertiserIDCollectionEnabled() has not been implemented.');
   }
 
+  Future<void> setAutoLogAppEventsEnabled({required bool isEnabled}) {
+    throw UnimplementedError(
+        'setAutoLogAppEventsEnabled() has not been implemented.');
+  }
+
   Future<void> setDataProcessingOptions(
       FBSetDataProcessingOptionsRequest request) {
     throw UnimplementedError(

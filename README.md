@@ -105,6 +105,7 @@ Get your *app id* and *client token* from [Meta Developers Panel](https://develo
 * Tracking permissions:
   * `setAdvertiserTrackingEnabled(bool)`: This function enables or disables advertiser tracking, controlling whether your app shares user data with Meta for targeted advertising purposes.
   * `setAdvertiserIDCollectionEnabled(bool)`: _Only for iOS (lower than iOS 17)_ Use with ATT permissions request, set to `True` when user allows and `False` when disallows.
+  * `setAutoLogAppEventsEnabled(bool)`: This function enables or disables automatic logging of common mobile events from the app like app installs, in-app purchases and app launches.
   * `setDataProcessingOptions(FBSetDataProcessingOptionsCommand)`: This function allows you to configure various data processing options, including data usage and sharing preferences, for the Meta App Ads SDK. Refer to [Meta Documentation](https://developers.facebook.com/docs/app-events/guides/data-processing-options)
 
 

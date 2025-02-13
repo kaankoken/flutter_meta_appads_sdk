@@ -161,6 +161,30 @@ class _MyAppState extends State<MyApp> {
               ),
               ElevatedButton(
                 onPressed: () => unawaited(
+                  _flutterMetaAppadsSdkPlugin.setAutoLogAppEventsEnabled(
+                    isEnabled: true,
+                  ),
+                ),
+                child:
+                    const Text("Set Automatic Event Collection Enabled - True"),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              ElevatedButton(
+                onPressed: () => unawaited(
+                  _flutterMetaAppadsSdkPlugin.setAutoLogAppEventsEnabled(
+                    isEnabled: false,
+                  ),
+                ),
+                child: const Text(
+                    "Set Automatic Event Collection Enabled - False"),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              ElevatedButton(
+                onPressed: () => unawaited(
                   _flutterMetaAppadsSdkPlugin.setDataProcessingOptions(
                       FBSetDataProcessingOptionsCommand(modes: [])),
                 ),

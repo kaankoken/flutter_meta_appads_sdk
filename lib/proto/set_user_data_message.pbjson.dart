@@ -41,16 +41,7 @@ final $typed_data.Uint8List fBUserDataTypeDescriptor = $convert.base64Decode(
 const FBSetUserDataRequest$json = {
   '1': 'FBSetUserDataRequest',
   '2': [
-    {
-      '1': 'type',
-      '3': 1,
-      '4': 1,
-      '5': 14,
-      '6': '.FBUserDataType',
-      '9': 0,
-      '10': 'type',
-      '17': true
-    },
+    {'1': 'type', '3': 1, '4': 1, '5': 14, '6': '.FBUserDataType', '9': 0, '10': 'type', '17': true},
     {'1': 'value', '3': 2, '4': 1, '5': 9, '10': 'value'},
   ],
   '8': [
@@ -62,3 +53,4 @@ const FBSetUserDataRequest$json = {
 final $typed_data.Uint8List fBSetUserDataRequestDescriptor = $convert.base64Decode(
     'ChRGQlNldFVzZXJEYXRhUmVxdWVzdBIoCgR0eXBlGAEgASgOMg8uRkJVc2VyRGF0YVR5cGVIAF'
     'IEdHlwZYgBARIUCgV2YWx1ZRgCIAEoCVIFdmFsdWVCBwoFX3R5cGU=');
+

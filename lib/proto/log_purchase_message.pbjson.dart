@@ -19,14 +19,7 @@ const FBLogPurchaseMessageRequest$json = {
   '2': [
     {'1': 'amount', '3': 1, '4': 1, '5': 1, '10': 'amount'},
     {'1': 'currency', '3': 2, '4': 1, '5': 9, '10': 'currency'},
-    {
-      '1': 'eventParameter',
-      '3': 3,
-      '4': 3,
-      '5': 11,
-      '6': '.FBLogPurchaseMessageRequest.EventParameterEntry',
-      '10': 'eventParameter'
-    },
+    {'1': 'eventParameter', '3': 3, '4': 3, '5': 11, '6': '.FBLogPurchaseMessageRequest.EventParameterEntry', '10': 'eventParameter'},
   ],
   '3': [FBLogPurchaseMessageRequest_EventParameterEntry$json],
 };
@@ -48,3 +41,4 @@ final $typed_data.Uint8List fBLogPurchaseMessageRequestDescriptor = $convert.bas
     'b2dQdXJjaGFzZU1lc3NhZ2VSZXF1ZXN0LkV2ZW50UGFyYW1ldGVyRW50cnlSDmV2ZW50UGFyYW'
     '1ldGVyGkEKE0V2ZW50UGFyYW1ldGVyRW50cnkSEAoDa2V5GAEgASgJUgNrZXkSFAoFdmFsdWUY'
     'AiABKAlSBXZhbHVlOgI4AQ==');
+

@@ -28,8 +28,8 @@ const FBSetDataProcessingOptionsRequest$json = {
 };
 
 /// Descriptor for `FBSetDataProcessingOptionsRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List fBSetDataProcessingOptionsRequestDescriptor =
-    $convert.base64Decode(
-        'CiFGQlNldERhdGFQcm9jZXNzaW5nT3B0aW9uc1JlcXVlc3QSFAoFbW9kZXMYASADKAlSBW1vZG'
-        'VzEhoKB2NvdW50cnkYAiABKAVIAFIHY291bnRyeRIWCgVzdGF0ZRgDIAEoBUgBUgVzdGF0ZUIS'
-        'ChBvcHRpb25hbF9jb3VudHJ5QhAKDm9wdGlvbmFsX3N0YXRl');
+final $typed_data.Uint8List fBSetDataProcessingOptionsRequestDescriptor = $convert.base64Decode(
+    'CiFGQlNldERhdGFQcm9jZXNzaW5nT3B0aW9uc1JlcXVlc3QSFAoFbW9kZXMYASADKAlSBW1vZG'
+    'VzEhoKB2NvdW50cnkYAiABKAVIAFIHY291bnRyeRIWCgVzdGF0ZRgDIAEoBUgBUgVzdGF0ZUIS'
+    'ChBvcHRpb25hbF9jb3VudHJ5QhAKDm9wdGlvbmFsX3N0YXRl');
+

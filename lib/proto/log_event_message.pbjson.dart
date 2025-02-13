@@ -18,14 +18,7 @@ const FBLogEventMessageRequest$json = {
   '1': 'FBLogEventMessageRequest',
   '2': [
     {'1': 'eventName', '3': 1, '4': 1, '5': 9, '10': 'eventName'},
-    {
-      '1': 'eventParameter',
-      '3': 2,
-      '4': 3,
-      '5': 11,
-      '6': '.FBLogEventMessageRequest.EventParameterEntry',
-      '10': 'eventParameter'
-    },
+    {'1': 'eventParameter', '3': 2, '4': 3, '5': 11, '6': '.FBLogEventMessageRequest.EventParameterEntry', '10': 'eventParameter'},
   ],
   '3': [FBLogEventMessageRequest_EventParameterEntry$json],
 };
@@ -46,3 +39,4 @@ final $typed_data.Uint8List fBLogEventMessageRequestDescriptor = $convert.base64
     'USVQoOZXZlbnRQYXJhbWV0ZXIYAiADKAsyLS5GQkxvZ0V2ZW50TWVzc2FnZVJlcXVlc3QuRXZl'
     'bnRQYXJhbWV0ZXJFbnRyeVIOZXZlbnRQYXJhbWV0ZXIaQQoTRXZlbnRQYXJhbWV0ZXJFbnRyeR'
     'IQCgNrZXkYASABKAlSA2tleRIUCgV2YWx1ZRgCIAEoCVIFdmFsdWU6AjgB');
+

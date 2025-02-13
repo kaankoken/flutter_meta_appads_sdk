@@ -69,6 +69,7 @@ class FlutterMetaAppadsSdkPlugin: FlutterPlugin, MethodCallHandler {
           Log.d("FBSDKLog", "SDK Version: ${FacebookSdk.getSdkVersion()}")
           Log.d("FBSDKLog", "AnonymousID: ${AppEventsLogger.getAnonymousAppDeviceGUID(context)}")
           Log.d("FBSDKLog", "TRACKING ENABLED: ${FacebookSdk.getAdvertiserIDCollectionEnabled()}")
+          Log.d("FBSDKLog", "AUTOMATIC EVENT COLLECTION ENABLED: ${FacebookSdk.getAutoLogAppEventsEnabled()}")
         }
 
         result.success(null)
@@ -130,6 +131,17 @@ class FlutterMetaAppadsSdkPlugin: FlutterPlugin, MethodCallHandler {
 
           if (loggingEnabled) {
             Log.d("FBSDKLog", "TRACKING ENABLED: ${FacebookSdk.getAdvertiserIDCollectionEnabled()}")
+          }
+        }
+
+        result.success(null)
+      }
+      "setAutoLogAppEventsEnabled" -> {
+        call.argument<Boolean>("isEnabled")?.let {
+          FacebookSdk.setAutoLogAppEventsEnabled(it)
+
+          if (loggingEnabled) {
+            Log.d("FBSDKLog", "AUTOMATIC EVENT COLLECTION ENABLED: ${FacebookSdk.getAutoLogAppEventsEnabled()}")
           }
         }
 
