@@ -14,7 +14,7 @@ class ObjectsToProtoCommunications {
       FBLogEventCommand command) {
     return FBLogEventMessageRequest(
       eventName: command.eventName,
-      eventParameter: command.eventParameters,
+      eventParameter: command.eventParameters.entries,
     );
   }
 
@@ -23,7 +23,7 @@ class ObjectsToProtoCommunications {
     return FBLogPurchaseMessageRequest(
       amount: command.amount,
       currency: command.currency,
-      eventParameter: command.eventParameter,
+      eventParameter: command.eventParameter.entries,
     );
   }
 
