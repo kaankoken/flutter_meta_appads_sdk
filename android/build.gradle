@@ -2,14 +2,14 @@ group = "cat.durban.sergio.flutter_meta_appads_sdk"
 version = "1.0-SNAPSHOT"
 
 buildscript {
-    ext.kotlin_version = "1.8.22"
+    ext.kotlin_version = "2.1.0"
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath("com.android.tools.build:gradle:8.1.0")
+        classpath("com.android.tools.build:gradle:8.7.2")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
     }
 }
@@ -29,15 +29,15 @@ android {
         namespace = "cat.durban.sergio.flutter_meta_appads_sdk"
     }
 
-    compileSdk = 34
+    compileSdk = 36
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
+        jvmTarget = "17"
     }
 
     sourceSets {
@@ -50,8 +50,9 @@ android {
     }
 
     dependencies {
-        implementation 'com.google.protobuf:protobuf-javalite:3.25.5'
-        implementation 'com.google.protobuf:protobuf-kotlin-lite:3.25.5'
+        implementation 'com.google.protobuf:protobuf-javalite:4.32.1'
+        implementation 'com.google.protobuf:protobuf-kotlin-lite:4.32.1'
+        compileOnly 'com.google.protobuf:protobuf-java:4.32.1'
         implementation("com.facebook.android:facebook-android-sdk:18.0.1")
         testImplementation("org.jetbrains.kotlin:kotlin-test")
         testImplementation("org.mockito:mockito-core:5.0.0")
