@@ -1,13 +1,14 @@
+// This is a generated file - do not edit.
 //
-//  Generated code. Do not modify.
-//  source: log_standard_event_message.proto
-//
-// @dart = 2.12
+// Generated from log_standard_event_message.proto.
+
+// @dart = 3.3
 
 // ignore_for_file: annotate_overrides, camel_case_types, comment_references
-// ignore_for_file: constant_identifier_names, library_prefixes
-// ignore_for_file: non_constant_identifier_names, prefer_final_fields
-// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
+// ignore_for_file: constant_identifier_names
+// ignore_for_file: curly_braces_in_flow_control_structures
+// ignore_for_file: deprecated_member_use_from_same_package, library_prefixes
+// ignore_for_file: non_constant_identifier_names, unused_import
 
 import 'dart:convert' as $convert;
 import 'dart:core' as $core;
@@ -93,22 +94,44 @@ final $typed_data.Uint8List fBStandardParametersDescriptor = $convert.base64Deco
 const FBLogStandardEventMessageRequest$json = {
   '1': 'FBLogStandardEventMessageRequest',
   '2': [
-    {'1': 'eventName', '3': 1, '4': 1, '5': 14, '6': '.FBStandardEvents', '10': 'eventName'},
-    {'1': 'eventParameter', '3': 2, '4': 3, '5': 11, '6': '.FBDefaultParameter', '10': 'eventParameter'},
+    {
+      '1': 'eventName',
+      '3': 1,
+      '4': 1,
+      '5': 14,
+      '6': '.FBStandardEvents',
+      '10': 'eventName'
+    },
+    {
+      '1': 'eventParameter',
+      '3': 2,
+      '4': 3,
+      '5': 11,
+      '6': '.FBDefaultParameter',
+      '10': 'eventParameter'
+    },
   ],
 };
 
 /// Descriptor for `FBLogStandardEventMessageRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List fBLogStandardEventMessageRequestDescriptor = $convert.base64Decode(
-    'CiBGQkxvZ1N0YW5kYXJkRXZlbnRNZXNzYWdlUmVxdWVzdBIvCglldmVudE5hbWUYASABKA4yES'
-    '5GQlN0YW5kYXJkRXZlbnRzUglldmVudE5hbWUSOwoOZXZlbnRQYXJhbWV0ZXIYAiADKAsyEy5G'
-    'QkRlZmF1bHRQYXJhbWV0ZXJSDmV2ZW50UGFyYW1ldGVy');
+final $typed_data.Uint8List fBLogStandardEventMessageRequestDescriptor =
+    $convert.base64Decode(
+        'CiBGQkxvZ1N0YW5kYXJkRXZlbnRNZXNzYWdlUmVxdWVzdBIvCglldmVudE5hbWUYASABKA4yES'
+        '5GQlN0YW5kYXJkRXZlbnRzUglldmVudE5hbWUSOwoOZXZlbnRQYXJhbWV0ZXIYAiADKAsyEy5G'
+        'QkRlZmF1bHRQYXJhbWV0ZXJSDmV2ZW50UGFyYW1ldGVy');
 
 @$core.Deprecated('Use fBDefaultParameterDescriptor instead')
 const FBDefaultParameter$json = {
   '1': 'FBDefaultParameter',
   '2': [
-    {'1': 'parameterName', '3': 1, '4': 1, '5': 14, '6': '.FBStandardParameters', '10': 'parameterName'},
+    {
+      '1': 'parameterName',
+      '3': 1,
+      '4': 1,
+      '5': 14,
+      '6': '.FBStandardParameters',
+      '10': 'parameterName'
+    },
     {'1': 'value', '3': 2, '4': 1, '5': 9, '10': 'value'},
   ],
 };
@@ -117,4 +140,3 @@ const FBDefaultParameter$json = {
 final $typed_data.Uint8List fBDefaultParameterDescriptor = $convert.base64Decode(
     'ChJGQkRlZmF1bHRQYXJhbWV0ZXISOwoNcGFyYW1ldGVyTmFtZRgBIAEoDjIVLkZCU3RhbmRhcm'
     'RQYXJhbWV0ZXJzUg1wYXJhbWV0ZXJOYW1lEhQKBXZhbHVlGAIgASgJUgV2YWx1ZQ==');
-

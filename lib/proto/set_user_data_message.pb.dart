@@ -1,19 +1,22 @@
+// This is a generated file - do not edit.
 //
-//  Generated code. Do not modify.
-//  source: set_user_data_message.proto
-//
-// @dart = 2.12
+// Generated from set_user_data_message.proto.
+
+// @dart = 3.3
 
 // ignore_for_file: annotate_overrides, camel_case_types, comment_references
-// ignore_for_file: constant_identifier_names, library_prefixes
-// ignore_for_file: non_constant_identifier_names, prefer_final_fields
-// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
+// ignore_for_file: constant_identifier_names
+// ignore_for_file: curly_braces_in_flow_control_structures
+// ignore_for_file: deprecated_member_use_from_same_package, library_prefixes
+// ignore_for_file: non_constant_identifier_names
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'set_user_data_message.pbenum.dart';
+
+export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
 export 'set_user_data_message.pbenum.dart';
 
@@ -22,65 +25,73 @@ class FBSetUserDataRequest extends $pb.GeneratedMessage {
     FBUserDataType? type,
     $core.String? value,
   }) {
-    final $result = create();
-    if (type != null) {
-      $result.type = type;
-    }
-    if (value != null) {
-      $result.value = value;
-    }
-    return $result;
+    final result = create();
+    if (type != null) result.type = type;
+    if (value != null) result.value = value;
+    return result;
   }
-  FBSetUserDataRequest._() : super();
-  factory FBSetUserDataRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory FBSetUserDataRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FBSetUserDataRequest', createEmptyInstance: create)
-    ..e<FBUserDataType>(1, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: FBUserDataType.Email, valueOf: FBUserDataType.valueOf, enumValues: FBUserDataType.values)
+  FBSetUserDataRequest._();
+
+  factory FBSetUserDataRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory FBSetUserDataRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'FBSetUserDataRequest',
+      createEmptyInstance: create)
+    ..e<FBUserDataType>(1, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE,
+        defaultOrMaker: FBUserDataType.Email,
+        valueOf: FBUserDataType.valueOf,
+        enumValues: FBUserDataType.values)
     ..aOS(2, _omitFieldNames ? '' : 'value')
-    ..hasRequiredFields = false
-  ;
+    ..hasRequiredFields = false;
 
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  FBSetUserDataRequest clone() => FBSetUserDataRequest()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  FBSetUserDataRequest copyWith(void Function(FBSetUserDataRequest) updates) => super.copyWith((message) => updates(message as FBSetUserDataRequest)) as FBSetUserDataRequest;
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  FBSetUserDataRequest clone() =>
+      FBSetUserDataRequest()..mergeFromMessage(this);
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  FBSetUserDataRequest copyWith(void Function(FBSetUserDataRequest) updates) =>
+      super.copyWith((message) => updates(message as FBSetUserDataRequest))
+          as FBSetUserDataRequest;
 
+  @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
   static FBSetUserDataRequest create() => FBSetUserDataRequest._();
+  @$core.override
   FBSetUserDataRequest createEmptyInstance() => create();
-  static $pb.PbList<FBSetUserDataRequest> createRepeated() => $pb.PbList<FBSetUserDataRequest>();
+  static $pb.PbList<FBSetUserDataRequest> createRepeated() =>
+      $pb.PbList<FBSetUserDataRequest>();
   @$core.pragma('dart2js:noInline')
-  static FBSetUserDataRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<FBSetUserDataRequest>(create);
+  static FBSetUserDataRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<FBSetUserDataRequest>(create);
   static FBSetUserDataRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
   FBUserDataType get type => $_getN(0);
   @$pb.TagNumber(1)
-  set type(FBUserDataType v) { setField(1, v); }
+  set type(FBUserDataType value) => $_setField(1, value);
   @$pb.TagNumber(1)
   $core.bool hasType() => $_has(0);
   @$pb.TagNumber(1)
-  void clearType() => clearField(1);
+  void clearType() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get value => $_getSZ(1);
   @$pb.TagNumber(2)
-  set value($core.String v) { $_setString(1, v); }
+  set value($core.String value) => $_setString(1, value);
   @$pb.TagNumber(2)
   $core.bool hasValue() => $_has(1);
   @$pb.TagNumber(2)
-  void clearValue() => clearField(2);
+  void clearValue() => $_clearField(2);
 }
 
-
-const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
-const _omitMessageNames = $core.bool.fromEnvironment('protobuf.omit_message_names');
+const $core.bool _omitFieldNames =
+    $core.bool.fromEnvironment('protobuf.omit_field_names');
+const $core.bool _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');

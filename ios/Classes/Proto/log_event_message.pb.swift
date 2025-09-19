@@ -38,10 +38,7 @@ struct FBLogEventMessageRequest: Sendable {
 
 extension FBLogEventMessageRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "FBLogEventMessageRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "eventName"),
-    2: .same(proto: "eventParameter"),
-  ]
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}eventName\0\u{1}eventParameter\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

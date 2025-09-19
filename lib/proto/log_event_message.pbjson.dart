@@ -1,13 +1,14 @@
+// This is a generated file - do not edit.
 //
-//  Generated code. Do not modify.
-//  source: log_event_message.proto
-//
-// @dart = 2.12
+// Generated from log_event_message.proto.
+
+// @dart = 3.3
 
 // ignore_for_file: annotate_overrides, camel_case_types, comment_references
-// ignore_for_file: constant_identifier_names, library_prefixes
-// ignore_for_file: non_constant_identifier_names, prefer_final_fields
-// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
+// ignore_for_file: constant_identifier_names
+// ignore_for_file: curly_braces_in_flow_control_structures
+// ignore_for_file: deprecated_member_use_from_same_package, library_prefixes
+// ignore_for_file: non_constant_identifier_names, unused_import
 
 import 'dart:convert' as $convert;
 import 'dart:core' as $core;
@@ -18,7 +19,14 @@ const FBLogEventMessageRequest$json = {
   '1': 'FBLogEventMessageRequest',
   '2': [
     {'1': 'eventName', '3': 1, '4': 1, '5': 9, '10': 'eventName'},
-    {'1': 'eventParameter', '3': 2, '4': 3, '5': 11, '6': '.FBLogEventMessageRequest.EventParameterEntry', '10': 'eventParameter'},
+    {
+      '1': 'eventParameter',
+      '3': 2,
+      '4': 3,
+      '5': 11,
+      '6': '.FBLogEventMessageRequest.EventParameterEntry',
+      '10': 'eventParameter'
+    },
   ],
   '3': [FBLogEventMessageRequest_EventParameterEntry$json],
 };
@@ -39,4 +47,3 @@ final $typed_data.Uint8List fBLogEventMessageRequestDescriptor = $convert.base64
     'USVQoOZXZlbnRQYXJhbWV0ZXIYAiADKAsyLS5GQkxvZ0V2ZW50TWVzc2FnZVJlcXVlc3QuRXZl'
     'bnRQYXJhbWV0ZXJFbnRyeVIOZXZlbnRQYXJhbWV0ZXIaQQoTRXZlbnRQYXJhbWV0ZXJFbnRyeR'
     'IQCgNrZXkYASABKAlSA2tleRIUCgV2YWx1ZRgCIAEoCVIFdmFsdWU6AjgB');
-

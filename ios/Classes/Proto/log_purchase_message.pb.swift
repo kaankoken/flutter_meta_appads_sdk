@@ -40,11 +40,7 @@ struct FBLogPurchaseMessageRequest: Sendable {
 
 extension FBLogPurchaseMessageRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "FBLogPurchaseMessageRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "amount"),
-    2: .same(proto: "currency"),
-    3: .same(proto: "eventParameter"),
-  ]
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}amount\0\u{1}currency\0\u{1}eventParameter\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

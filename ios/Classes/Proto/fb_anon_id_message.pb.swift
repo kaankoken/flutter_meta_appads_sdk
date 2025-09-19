@@ -36,9 +36,7 @@ struct FBAnonIdResponse: Sendable {
 
 extension FBAnonIdResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "FBAnonIdResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "fbAnonId"),
-  ]
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}fbAnonId\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

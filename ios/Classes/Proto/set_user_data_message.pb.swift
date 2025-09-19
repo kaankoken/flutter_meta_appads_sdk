@@ -116,27 +116,12 @@ struct FBSetUserDataRequest: Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension FBUserDataType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "Email"),
-    1: .same(proto: "FirstName"),
-    2: .same(proto: "LastName"),
-    3: .same(proto: "Phone"),
-    4: .same(proto: "DateOfBirth"),
-    5: .same(proto: "Gender"),
-    6: .same(proto: "City"),
-    7: .same(proto: "State"),
-    8: .same(proto: "Zip"),
-    9: .same(proto: "Country"),
-    10: .same(proto: "ExternalId"),
-  ]
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0Email\0\u{1}FirstName\0\u{1}LastName\0\u{1}Phone\0\u{1}DateOfBirth\0\u{1}Gender\0\u{1}City\0\u{1}State\0\u{1}Zip\0\u{1}Country\0\u{1}ExternalId\0")
 }
 
 extension FBSetUserDataRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "FBSetUserDataRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "type"),
-    2: .same(proto: "value"),
-  ]
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}type\0\u{1}value\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

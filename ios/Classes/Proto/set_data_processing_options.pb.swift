@@ -66,11 +66,7 @@ struct FBSetDataProcessingOptionsRequest: Sendable {
 
 extension FBSetDataProcessingOptionsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "FBSetDataProcessingOptionsRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "modes"),
-    2: .same(proto: "country"),
-    3: .same(proto: "state"),
-  ]
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}modes\0\u{1}country\0\u{1}state\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

@@ -259,60 +259,16 @@ struct FBDefaultParameter: Sendable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension FBStandardEvents: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "AdClick"),
-    1: .same(proto: "AdImpression"),
-    2: .same(proto: "CompletedRegistration"),
-    3: .same(proto: "CompletedTutorial"),
-    4: .same(proto: "Contact"),
-    5: .same(proto: "CustomizeProduct"),
-    6: .same(proto: "Donate"),
-    7: .same(proto: "FindLocation"),
-    8: .same(proto: "Rated"),
-    9: .same(proto: "Schedule"),
-    10: .same(proto: "Searched"),
-    11: .same(proto: "StartTrial"),
-    12: .same(proto: "SubmitApplication"),
-    13: .same(proto: "Subscribe"),
-    14: .same(proto: "ViewedContent"),
-    15: .same(proto: "AddedPaymentInfo"),
-    16: .same(proto: "AddedToCart"),
-    17: .same(proto: "AddedToWishlist"),
-    18: .same(proto: "InitiatedCheckout"),
-    19: .same(proto: "Purchased"),
-    20: .same(proto: "AchievedLevel"),
-    21: .same(proto: "UnlockedAchievement"),
-    22: .same(proto: "SpentCredits"),
-  ]
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0AdClick\0\u{1}AdImpression\0\u{1}CompletedRegistration\0\u{1}CompletedTutorial\0\u{1}Contact\0\u{1}CustomizeProduct\0\u{1}Donate\0\u{1}FindLocation\0\u{1}Rated\0\u{1}Schedule\0\u{1}Searched\0\u{1}StartTrial\0\u{1}SubmitApplication\0\u{1}Subscribe\0\u{1}ViewedContent\0\u{1}AddedPaymentInfo\0\u{1}AddedToCart\0\u{1}AddedToWishlist\0\u{1}InitiatedCheckout\0\u{1}Purchased\0\u{1}AchievedLevel\0\u{1}UnlockedAchievement\0\u{1}SpentCredits\0")
 }
 
 extension FBStandardParameters: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "ParameterNameContent"),
-    1: .same(proto: "ParameterNameContentID"),
-    2: .same(proto: "ParameterNameContentType"),
-    3: .same(proto: "ParameterNameCurrency"),
-    4: .same(proto: "ParameterNameDescription"),
-    5: .same(proto: "ParameterNameLevel"),
-    6: .same(proto: "ParameterNameMaxRatingValue"),
-    7: .same(proto: "ParameterNameNumItems"),
-    8: .same(proto: "ParameterNamePaymentInfoAvailable"),
-    9: .same(proto: "ParameterNameRegistrationMethod"),
-    10: .same(proto: "ParameterNameSearchString"),
-    11: .same(proto: "ParameterNameSuccess"),
-    12: .same(proto: "ParameterNameAdType"),
-    13: .same(proto: "ParameterNameOrderID"),
-    14: .same(proto: "ParameterNameEventName"),
-    15: .same(proto: "ParameterNameLogTime"),
-  ]
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{2}\0ParameterNameContent\0\u{1}ParameterNameContentID\0\u{1}ParameterNameContentType\0\u{1}ParameterNameCurrency\0\u{1}ParameterNameDescription\0\u{1}ParameterNameLevel\0\u{1}ParameterNameMaxRatingValue\0\u{1}ParameterNameNumItems\0\u{1}ParameterNamePaymentInfoAvailable\0\u{1}ParameterNameRegistrationMethod\0\u{1}ParameterNameSearchString\0\u{1}ParameterNameSuccess\0\u{1}ParameterNameAdType\0\u{1}ParameterNameOrderID\0\u{1}ParameterNameEventName\0\u{1}ParameterNameLogTime\0")
 }
 
 extension FBLogStandardEventMessageRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "FBLogStandardEventMessageRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "eventName"),
-    2: .same(proto: "eventParameter"),
-  ]
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}eventName\0\u{1}eventParameter\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -347,10 +303,7 @@ extension FBLogStandardEventMessageRequest: SwiftProtobuf.Message, SwiftProtobuf
 
 extension FBDefaultParameter: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "FBDefaultParameter"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "parameterName"),
-    2: .same(proto: "value"),
-  ]
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap(bytecode: "\0\u{1}parameterName\0\u{1}value\0")
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
